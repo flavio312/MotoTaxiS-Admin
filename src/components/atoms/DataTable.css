@@ -1,0 +1,88 @@
+.data-table-wrapper {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+}
+
+.data-table-wrapper__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.data-table-wrapper__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.data-table-wrapper__count {
+  font-size: 12px;
+  color: var(--gray-400);
+  background: var(--gray-100);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.data-table thead th {
+  background: var(--gray-100);
+  color: var(--gray-500);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 11px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--gray-100);
+  transition: background 0.12s;
+}
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table tbody tr:hover { background: #f8faff; }
+
+.data-table tbody td {
+  padding: 13px 16px;
+  color: var(--gray-700);
+  vertical-align: middle;
+}
+
+/* States */
+.data-table-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px;
+  gap: 12px;
+}
+
+.data-table-state__icon  { font-size: 40px; }
+.data-table-state__text  { font-size: 14px; color: var(--gray-400); font-weight: 500; }
+.data-table-state__error { font-size: 13px; color: var(--red); }
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge--green  { background: #dcfce7; color: #16a34a; }
+.badge--red    { background: #fee2e2; color: #dc2626; }
+.badge--blue   { background: #dbeafe; color: #1d4ed8; }
+.badge--gray   { background: var(--gray-100); color: var(--gray-500); }
+.badge--amber  { background: #fef3c7; color: #d97706; }

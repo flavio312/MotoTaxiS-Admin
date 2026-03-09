@@ -1,0 +1,25 @@
+.page-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page-section__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.page-section__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gray-800);
+}
+
+.page-section__subtitle {
+  font-size: 13px;
+  color: var(--gray-400);
+  margin-top: 2px;
+}

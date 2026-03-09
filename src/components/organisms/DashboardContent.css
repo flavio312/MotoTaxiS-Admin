@@ -1,0 +1,42 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gray-800);
+}
+
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .dashboard__stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+.dashboard__chart-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+}
+
+.dashboard__chart-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-700);
+  margin-bottom: 2px;
+}
+
+.dashboard__chart-subtitle {
+  font-size: 12px;
+  color: var(--gray-400);
+  margin-bottom: 20px;
+}

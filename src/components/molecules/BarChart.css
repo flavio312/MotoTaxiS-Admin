@@ -1,0 +1,35 @@
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 150px;
+  padding: 0 8px;
+}
+
+.bar-chart__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.bar-chart__value {
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+.bar-chart__bar {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  background: #93c5fd;
+  transition: background 0.2s;
+  min-height: 4px;
+}
+.bar-chart__bar:hover { background: #3b82f6; }
+
+.bar-chart__label {
+  font-size: 11px;
+  color: var(--gray-500);
+  white-space: nowrap;
+}
