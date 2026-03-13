@@ -35,3 +35,13 @@ export const loginRequest = (nombreUsuario, password) =>
 export const getPropietarios = () => request("/admin/propietarios");
 export const getUsuarios     = () => request("/admin/usuarios");
 export const getConductores  = () => request("/admin/conductores");
+export const getVehiculos    = () => request("/admin/vehiculos");
+// Autorizaciones
+export const getAutorizacionPropietarios = () => request("/admin/autorizaciones/propietarios");
+export const aprobarAutorizacionPropietarios = (id, data) => request(`/admin/autorizaciones/propietarios/${id}`, {
+  method: "PUT",
+  body: JSON.stringify(data)
+});
+export const rechazarAutorizacionPropietarios = (id) => request(`/admin/autorizaciones/propietarios/${id}`, {
+  method: "PUT"
+});

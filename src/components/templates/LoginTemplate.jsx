@@ -10,7 +10,7 @@ const LoginTemplate = ({ onSuccess }) => {
       <div className="login-template__right">
         <img src="./moto.png" alt="MotoTaxi Seguro" />
         <p className="login-template__brand-desc">
-          Plataforma administrativa de gestión de viajes seguros
+          Plataforma administrativa de gestión de MotoTaxi seguro
         </p>
       </div>
     </div>

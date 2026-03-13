@@ -18,6 +18,9 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (nombreUsuario, contrasena) => {
     const data = await loginRequest(nombreUsuario, contrasena);
+    if (data.rol !== "admin") {
+      throw new Error("Solo los administradores pueden ingresar");
+    }
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", JSON.stringify({
       id:       data.idUsuario,

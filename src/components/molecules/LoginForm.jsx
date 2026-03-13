@@ -20,11 +20,18 @@ const LoginForm = ({ onSuccess }) => {
 
   const handleSubmit = async () => {
     const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
+    if (Object.keys(errs).length) { 
+      setErrors(errs); 
+      return; 
+    }
     setLoading(true);
-    try {
-      await login(nombreUsuario, password);
-      onSuccess?.();
+    try { 
+      const user = await login(nombreUsuario, password);
+      if (user.rol !== "admin") {
+        setErrors({ general: "Solo los administradores pueden ingresar" });
+        return;
+      }
+      onSuccess?.(user);
     } catch (err) {
       setErrors({ general: err.message || "Credenciales incorrectas" });
     } finally {

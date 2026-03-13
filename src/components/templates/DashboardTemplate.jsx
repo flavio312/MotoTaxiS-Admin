@@ -6,6 +6,9 @@ import DashboardContent from "../organisms/DashboardContent";
 import PropietariosContent from "../organisms/PropietariosContent";
 import UsuariosContent from "../organisms/UsuariosContent";
 import ConductoresContent from "../organisms/ConductoresContent";
+import VehiculosContent from "../organisms/VehiculosContent";
+import ServiciosContent from "../organisms/ServiciosContent";
+import AutorizacionContent from "../organisms/AutorizacionContent";
 
 const pageTitles = {
   dashboard:    "Panel administrativo",
@@ -15,6 +18,7 @@ const pageTitles = {
   vehiculos:    "Vehículos",
   servicios:    "Servicios",
   evaluaciones: "Evaluaciones",
+  autorizaciones: "Autorizaciones"
 };
 
 const DashboardTemplate = () => {
@@ -26,6 +30,9 @@ const DashboardTemplate = () => {
       case "usuarios":     return <UsuariosContent />;
       case "propietarios": return <PropietariosContent />;
       case "conductores":  return <ConductoresContent />;
+      case "vehiculos":    return <VehiculosContent />;
+      case "servicios":    return <ServiciosContent />;
+      case "autorizaciones": return <AutorizacionContent />;
       default:
         return (
           <div className="dashboard-template__placeholder">

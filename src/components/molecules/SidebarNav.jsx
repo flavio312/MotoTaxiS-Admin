@@ -7,6 +7,7 @@ const navItems = [
   { id: "vehiculos",    label: "Vehículos",    icon: "🚙" },
   { id: "servicios",    label: "Servicios",    icon: "📍" },
   { id: "evaluaciones", label: "Evaluaciones", icon: "📋" },
+  { id: "autorizaciones", label: "Autorizaciones", icon: "✅" },
 ];
 
 const SidebarNav = ({ active, onSelect }) => {
