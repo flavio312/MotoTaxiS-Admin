@@ -1,5 +1,7 @@
-
+import { useCallback } from "react";
 import DataTable from "../atoms/DataTable";
+import useFetch from "../../hooks/useFetch";
+import { getServicios } from "../../services/api";
 import "../styles/pageSection.css";
 
 const columns = [
@@ -30,6 +32,8 @@ const columns = [
 ];
 
 const ServiciosContent = () => {
+    const fetcher = useCallback(getServicios, []);
+const { data, loading, error, refetch } = useFetch(fetcher);
     return(
         <div className="page-section">
             <div className="page-section__top">

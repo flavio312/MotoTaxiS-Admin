@@ -20,7 +20,7 @@ const columns = [
     },
   },
   {
-    key: "estado",
+    key: "estadoCuenta",
     label: "Estado",
     render: (val) => {
       const activo = val === "activo" || val === true || val === 1;

@@ -36,12 +36,14 @@ export const getPropietarios = () => request("/admin/propietarios");
 export const getUsuarios     = () => request("/admin/usuarios");
 export const getConductores  = () => request("/admin/conductores");
 export const getVehiculos    = () => request("/admin/vehiculos");
+export const getServicios     = () => request("/admin/servicios");
 // Autorizaciones
 export const getAutorizacionPropietarios = () => request("/admin/autorizaciones/propietarios");
-export const aprobarAutorizacionPropietarios = (id, data) => request(`/admin/autorizaciones/propietarios/${id}`, {
-  method: "PUT",
-  body: JSON.stringify(data)
+export const aprobarAutorizacionPropietarios = (id) => 
+  request(`/admin/autorizaciones/propietarios/${id}/aprobar`, {
+  method: "PUT"
 });
-export const rechazarAutorizacionPropietarios = (id) => request(`/admin/autorizaciones/propietarios/${id}`, {
+export const rechazarAutorizacionPropietarios = (id) => 
+  request(`/admin/autorizaciones/propietarios/${id}/rechazar`, {
   method: "PUT"
 });

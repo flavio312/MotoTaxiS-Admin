@@ -23,3 +23,24 @@
   color: var(--gray-400);
   margin-top: 2px;
 }
+
+.badge {
+  padding: 0.4em 0.6em;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+.bg-success {
+  background-color: #28a745 !important; /* verde */
+  color: #fff !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important; /* amarillo */
+  color: #000 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important; /* rojo */
+  color: #fff !important;
+}
