@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "color-namer": "^1.4.0",
+    "dotenv": "^17.4.1",
+    "jwt-decode": "^4.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

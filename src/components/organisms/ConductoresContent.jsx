@@ -9,23 +9,27 @@ const columns = [
   { key: "nombre",        label: "Nombre" },
   { key: "apellidoP",      label: "Apellido paterno" },
   { key: "licencia",      label: "Licencia" },
-  {key:"licenciaFechaVencimiento", label: "Vencimiento licencia"},
+  {key:"licenciaFechaVencimiento", label: "Vencimiento licencia",
+    render: (val) => {
+      const lincenciaFechaVencimiento = new Date(val);
+      return lincenciaFechaVencimiento.toLocaleDateString("es-MX");
+    }
+  },
   {
-    key: "estado",
+    key: "estatus",
     label: "Estado",
     render: (val) => {
-      const activo = val === "activo" || val === true || val === 1;
+      const habilitado = val === "habilitado" || val === true || val === 1;
       return (
-        <span className={`badge badge--${activo ? "green" : "red"}`}>
-          {activo ? "Activo" : "Inactivo"}
+        <span className={`badge badge--${habilitado ? "green" : "red"}`}>
+          {habilitado ? "Habilitado" : "Deshabilitado"}
         </span>
       );
     },
   },{
-      key:"acciones", label: "Acciones", render: () => (
+      key:"acciones", label: "Accion", render: () => (
     <div className="actions">
-      <button className="btn btn--small btn--blue">Editar</button>
-      <button className="btn btn--small btn--red">Eliminar</button>
+      <button className="btn btn--small btn--red">Deshabilitar</button>
     </div>
   ),
   }

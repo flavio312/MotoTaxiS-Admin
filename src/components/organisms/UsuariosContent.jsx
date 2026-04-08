@@ -1,17 +1,27 @@
 import { useCallback } from "react";
 import DataTable from "../atoms/DataTable";
+import SearchBar from "../atoms/SearchBar";
+import useFilter from "../../hooks/useFilter";
 import useFetch from "../../hooks/useFetch";
 import { getUsuarios } from "../../services/api";
 import "../styles/pageSection.css";
 
+const ROLES = [
+  { value: "pasajero", label: "Pasajero" },
+  { value: "conductor", label: "Conductor" },
+  { value: "propietario", label: "Propietario" },
+];
+
 const columns = [
   { key: "idUsuario",      label: "#" },
   { key: "nombreUsuario",  label: "Usuario" },
+  { key: "nombre",         label: "Nombre" },
+  { key: "correoElectronico",          label: "Email" },
   {
     key: "rol",
     label: "Rol",
     render: (val) => {
-      const map = { admin: "blue", usuario: "gray", conductor: "amber" };
+      const map = { admin: "blue", pasajero: "gray", conductor: "amber" };
       return (
         <span className={`badge badge--${map[val] ?? "gray"}`}>
           {val ?? "—"}
@@ -44,6 +54,9 @@ const UsuariosContent = () => {
   const fetcher = useCallback(getUsuarios, []);
   const { data, loading, error, refetch } = useFetch(fetcher);
 
+  const { search, setSearch, filter, setFilter, filtered, clear } = 
+  useFilter(data, ["nombre","nombreUsuario","correoElectronico"], "rol");
+
   return (
     <div className="page-section">
       <div className="page-section__top">
@@ -52,10 +65,22 @@ const UsuariosContent = () => {
           <p className="page-section__subtitle">Listado de usuarios registrados</p>
         </div>
       </div>
+
+      <SearchBar
+        searchValue={search}
+        onSearchChange={setSearch}
+        filterValue={filter}
+        onFilterChange={setFilter}
+        searchPlaceholder="Buscar por nombre o usuario..."
+        filterLabel="Todos los roles"
+        filterOptions={ROLES}
+        onClear={clear}
+      />
+      
       <DataTable
         title="Usuarios"
         columns={columns}
-        data={data}
+        data={filtered}
         loading={loading}
         error={error}
         onRefetch={refetch}
