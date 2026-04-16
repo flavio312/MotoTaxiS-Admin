@@ -38,6 +38,11 @@ export const getUsuarios     = () => request("/admin/usuarios");
 export const getConductores  = () => request("/admin/conductores");
 export const getVehiculos    = () => request("/admin/vehiculos");
 export const getServicios     = () => request("/admin/servicios");
+export const deleteUser = (idUsuario) => 
+  request(`/admin/usuarios/${idUsuario}`, { 
+    method: "DELETE" 
+});
+
 // Autorizaciones
 export const getAutorizacionPropietarios = () => request("/admin/autorizaciones/propietarios");
 export const aprobarAutorizacionPropietarios = (id) => 
