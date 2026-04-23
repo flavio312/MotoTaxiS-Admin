@@ -33,7 +33,7 @@ const LoginForm = ({ onSuccess }) => {
       }
       onSuccess?.(user);
     } catch (err) {
-      setErrors({ general: err.message || "Credenciales incorrectas" });
+      setErrors({ general: "Credenciales incorrectas" });
     } finally {
       setLoading(false);
     }

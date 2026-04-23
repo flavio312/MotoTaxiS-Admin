@@ -23,7 +23,7 @@ const UsuariosContent = () => {
     try {
       await deleteUser(idUsuario);
       alert("Usuario eliminado correctamente");
-      refetch(); // refresca la tabla
+      refetch();
     } catch (err) {
       console.error(err);
       alert("Error al eliminar usuario");
@@ -38,9 +38,9 @@ const UsuariosContent = () => {
     key: "rol",
     label: "Rol",
     render: (val) => {
-      const map = { admin: "blue", pasajero: "gray", conductor: "amber" };
+      const map = { admin: "blue", pasajero: "green", conductor: "amber" };
       return (
-        <span className={`badge badge--${map[val] ?? "gray"}`}>
+        <span className={`badge badge--${map[val] ?? "green"}`}>
           {val ?? "—"}
         </span>
       );

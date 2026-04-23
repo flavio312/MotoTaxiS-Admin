@@ -35,10 +35,10 @@ const columns = [
     label: "Estado",
     render: (val) => {
       const pendiente = val === "pendiente" || val === true || val === 1 || val === "1";
-      const aprobado = val === "aprobado" || val === "aceptado" || val === false || val === 0 || val === "0";
+      const aceptado = val === "aceptado" || val === "aceptado" || val === false || val === 0 || val === "0";
       return (
-        <span className={`badge badge--${pendiente ? "yellow" : aprobado ? "green" : "red"}`}>
-          {pendiente ? "Pendiente" : aprobado ? "Aprobado" : "Rechazado" }
+        <span className={`badge badge--${pendiente ? "yellow" : aceptado ? "green" : "red"}`}>
+          {pendiente ? "Pendiente" : aceptado ? "Aceptado" : "Rechazado" }
         </span>
       );
     }
@@ -61,6 +61,7 @@ const columns = [
   },
 ];
 
+
 const AutorizacionContent = () => {
   const fetcher = useCallback(getAutorizacionPropietarios, []);
   const { data, loading, error, refetch } = useFetch(fetcher);
@@ -68,23 +69,24 @@ const AutorizacionContent = () => {
   const { search, setSearch, filter, setFilter, filtered, clear } = 
   useFilter(data, ["nombre","rfc"], "estado");
 
-  const handleAprobar = async (id) => {
+  const handleAprobar = async (idAutorizacion) => {
     try {
-      await aprobarAutorizacionPropietarios(id, { estado: "aprobado" });
+      await aprobarAutorizacionPropietarios(idAutorizacion, { estado: "aceptado" });
       refetch();
     } catch (error) {
       console.error("Error al aprobar:", error);
     }
   };
 
-  const handleRechazar = async (id) => {
+  const handleRechazar = async (idAutorizacion) => {
     try {
-      await rechazarAutorizacionPropietarios(id);
+      await rechazarAutorizacionPropietarios(idAutorizacion);
       refetch();
     } catch (error) {
       console.error("Error al rechazar:", error);
     }
   };
+
   return(
     <div className="page-section">
       <div className="page-section__top">

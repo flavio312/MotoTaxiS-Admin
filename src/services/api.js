@@ -45,11 +45,11 @@ export const deleteUser = (idUsuario) =>
 
 // Autorizaciones
 export const getAutorizacionPropietarios = () => request("/admin/autorizaciones/propietarios");
-export const aprobarAutorizacionPropietarios = (id) => 
-  request(`/admin/autorizaciones/propietarios/${id}/aprobar`, {
+export const aprobarAutorizacionPropietarios = (idAutorizacion) => 
+  request(`/admin/autorizaciones/propietarios/${idAutorizacion}/aprobar`, {
   method: "PUT"
 });
-export const rechazarAutorizacionPropietarios = (id) => 
-  request(`/admin/autorizaciones/propietarios/${id}/rechazar`, {
+export const rechazarAutorizacionPropietarios = (idAutorizacion) => 
+  request(`/admin/autorizaciones/propietarios/${idAutorizacion}/rechazar`, {
   method: "PUT"
 });
