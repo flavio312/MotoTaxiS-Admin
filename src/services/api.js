@@ -45,11 +45,19 @@ export const deleteUser = (idUsuario) =>
 
 // Autorizaciones
 export const getAutorizacionPropietarios = () => request("/admin/autorizaciones/propietarios");
-export const aprobarAutorizacionPropietarios = (idAutorizacion) => 
+export const aprobarAutorizacionPropietarios = (idAutorizacion,body) => 
   request(`/admin/autorizaciones/propietarios/${idAutorizacion}/aprobar`, {
-  method: "PUT"
+  method: "PUT",
+  body: JSON.stringify(body),
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
-export const rechazarAutorizacionPropietarios = (idAutorizacion) => 
+export const rechazarAutorizacionPropietarios = (idAutorizacion, body) => 
   request(`/admin/autorizaciones/propietarios/${idAutorizacion}/rechazar`, {
-  method: "PUT"
+  method: "PUT",
+  body: JSON.stringify(body),
+  headers: {
+    "Content-Type": "application/json",
+  },
 });

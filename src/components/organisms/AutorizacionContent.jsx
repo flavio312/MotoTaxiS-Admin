@@ -20,6 +20,7 @@ const estadoBadge = {
   aceptado:  "green",
   rechazado: "red",
 };
+
 const columns = [
   { key: "idAutorizacion", label: "#" },
   { key: "nombre", label: "Inscripción" },
@@ -60,8 +61,6 @@ const columns = [
     )
   },
 ];
-
-
 const AutorizacionContent = () => {
   const fetcher = useCallback(getAutorizacionPropietarios, []);
   const { data, loading, error, refetch } = useFetch(fetcher);
@@ -71,7 +70,7 @@ const AutorizacionContent = () => {
 
   const handleAprobar = async (idAutorizacion) => {
     try {
-      await aprobarAutorizacionPropietarios(idAutorizacion, { estado: "aceptado" });
+      await aprobarAutorizacionPropietarios(idAutorizacion, {aceptado:"aceptado"});
       refetch();
     } catch (error) {
       console.error("Error al aprobar:", error);
@@ -80,7 +79,7 @@ const AutorizacionContent = () => {
 
   const handleRechazar = async (idAutorizacion) => {
     try {
-      await rechazarAutorizacionPropietarios(idAutorizacion);
+      await rechazarAutorizacionPropietarios(idAutorizacion, {estado:"rechazado"});
       refetch();
     } catch (error) {
       console.error("Error al rechazar:", error);
